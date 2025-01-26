@@ -92,7 +92,7 @@
                 <a href="#" class="text-blue-600 hover:underline mx-2">Confidentialité et Cookies</a> |
                 <a href="#" class="text-blue-600 hover:underline mx-2">Contact</a>
             </div>
-            <p>fonctionpublique.gouv.sn | gouv.sn | presidence.sn | servicepublic.gouv.sn | fonctionpublique-actes.gouv.sn</p>
+            <p>fonctionpublique.gouv.sn | gouv.sn | presidence.sn | servicepublic.gouv.sn | fonctionpublique-actes.gouv.sn | fonctionpublique-actes.gouv.sn</p>
         </div>
     </footer>
 

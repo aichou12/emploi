@@ -1,74 +1,100 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateforme de Gestion des Demandes d'Emploi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
 
-        <title>Laravel</title>
+    <!-- Header -->
+<header class="bg-white py-4 shadow">
+    <div class="container mx-auto flex items-center justify-center px-6">
+        <div class="flex flex-col items-center text-center space-y-4">
+            <img src="images/dss.png" alt="Logo Sénégal" class="h-12">
+            <h1 class="text-xl font-bold text-gray-900">
+                PLATEFORME DE GESTION DES DEMANDES D'EMPLOI DE LA DIASPORA
+            </h1>
+        </div>
+    </div>
+</header>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Styles / Scripts -->
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @else
-           
-        @endif
-    </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-        <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
-             <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-                <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                    <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                        <div class="flex lg:justify-center lg:col-start-2">
-                            </div>
-                        @if (Route::has('login'))
-                            <nav class="-mx-3 flex flex-1 justify-end">
-                                @auth
-                                    <a
-                                        href="{{ url('/dashboard') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Dashboard
-                                    </a>
-                                @else
-                                    <a
-                                        href="{{ route('login') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                       Connexion
-                                    </a>
+    <!-- Alerte rouge -->
+    <div class="bg-blue-100 text-black-700 p-4 text-center">
+    <p>
+    Cette plateforme est <strong>exclusivement dédiée aux Sénégalais de la diaspora</strong> souhaitant intégrer la fonction publique et contribuer au développement du pays.<br>
+    Elle vous permet de postuler aux offres d’emploi et de mettre votre expertise au service du Sénégal.<br><br>
 
-                                    @if (Route::has('register'))
-                                        <a
-                                            href="{{ route('register') }}"
-                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                        >
-                                            Creer compte
-                                        </a>
-                                    @endif
-                                @endauth
-                            </nav>
-                        @endif
-                    </header>
+    Pour plus d’informations ou toute assistance, contactez-nous à <strong>emploi@fonctionpublique.gouv.sn</strong>.<br><br>
 
-                    <main class="mt-6">
-                        <div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
-                          
+    🇸🇳 <strong>Votre engagement, notre fierté. Construisons ensemble l’avenir du Sénégal !</strong> 🤝
+</p>
 
-                          
-                          
+    </div>
 
-                             
-                    </main>
+    <!-- Conteneur principal -->
+    <div class="container mx-auto flex flex-wrap md:flex-nowrap items-center justify-center mt-8 px-6 lg:px-20">
 
-                    <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                    © Demande d'emploi
-                       </footer>
-                </div>
+        <!-- Colonne gauche : Formulaire -->
+        <div class="w-full md:w-1/2 p-8">
+            <div class="mb-6">
+                <button class="w-full py-3 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition flex items-center justify-center">
+                    <span class="mr-2">📂</span> Créer un compte
+                </button>
+                <p class="text-center text-blue-600 mt-2 cursor-pointer hover:underline">Comment s'inscrire ?</p>
+            </div>
+
+            <div class="bg-white shadow-md rounded-md p-6">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Se connecter</h2>
+
+                <form action="#" method="POST">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium">Nom d'utilisateur</label>
+                        <input type="text" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-medium">Mot de passe</label>
+                        <input type="password" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="text-indigo-600 focus:ring-indigo-500">
+                            <span class="ml-2 text-sm text-gray-600">Se souvenir de moi</span>
+                        </label>
+                        <a href="#" class="text-sm text-blue-600 hover:underline">Mot de passe oublié ?</a>
+                    </div>
+
+                    <button type="submit" class="mt-6 w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                        Connexion
+                    </button><!-- Colonne droite : Image
+
+                    <p class="text-center text-gray-600 mt-3 text-sm cursor-pointer hover:underline">← Retour au site du ministère</p> -->
+                </form>
             </div>
         </div>
-    </body>
+
+        <!-- Colonne droite : Image -->
+        <div class="w-full md:w-1/2 p-6">
+            <img src="images/fon.png" alt="Illustration" class="w-full h-auto rounded-lg shadow-md" style="margin-top: 100px;">
+        </div>
+
+    </div>
+
+    <!-- Pied de page -->
+    <footer class="bg-gray-200 text-center text-sm text-gray-700 py-4 mt-8">
+        <div class="container mx-auto">
+            <div class="mb-2">
+                <a href="#" class="text-blue-600 hover:underline mx-2">Mentions légales</a> |
+                <a href="#" class="text-blue-600 hover:underline mx-2">Confidentialité et Cookies</a> |
+                <a href="#" class="text-blue-600 hover:underline mx-2">Contact</a>
+            </div>
+            <p>fonctionpublique.gouv.sn | gouv.sn | presidence.sn | servicepublic.gouv.sn | fonctionpublique-actes.gouv.sn</p>
+        </div>
+    </footer>
+
+</body>
 </html>

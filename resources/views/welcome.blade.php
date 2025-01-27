@@ -40,27 +40,30 @@
         <!-- Colonne gauche : Formulaire -->
         <div class="w-full md:w-1/2 p-8">
             <div class="mb-6">
-                <button class="w-full py-3 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition flex items-center justify-center">
-                    <span class="mr-2">📂</span> Créer un compte
-                </button>
+            <a href="{{ route('register') }}" class="w-full py-3 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition flex items-center justify-center">
+    <span class="mr-2">📂</span> Créer un compte
+</a>
+
                 <p class="text-center text-blue-600 mt-2 cursor-pointer hover:underline">Comment s'inscrire ?</p>
             </div>
 
             <div class="bg-white shadow-md rounded-md p-6">
                 <h2 class="text-lg font-semibold text-gray-900 mb-4">Se connecter</h2>
 
-                <form action="#" method="POST">
+                <form action="{{ route('login') }}" method="POST">
+                @csrf
                     <div class="mb-4">
-                        <label class="block text-gray-700 font-medium">Nom d'utilisateur</label>
-                        <input type="text" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
-                    </div>
+                    <x-label for="email" value="{{ __('Email') }}" />
+    <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+ </div>
 
                     <div class="mb-4">
-                        <label class="block text-gray-700 font-medium">Mot de passe</label>
-                        <input type="password" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
-                    </div>
+                    <x-label for="password" value="{{ __('Password') }}" />
+    <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+ </div>
+                   
 
-                    <div class="flex items-center justify-between">
+             <div class="flex items-center justify-between">
                         <label class="flex items-center">
                             <input type="checkbox" class="text-indigo-600 focus:ring-indigo-500">
                             <span class="ml-2 text-sm text-gray-600">Se souvenir de moi</span>

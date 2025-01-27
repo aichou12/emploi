@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserDataController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,6 +19,11 @@ Route::middleware([
 });
 
 
+// routes/web.php
+
+
+
+Route::post('/user/store', [UserDataController::class, 'store'])->name('user.store');
 
 Route::middleware(['auth'])->group(function () {
     // Afficher le tableau de bord avec le formulaire

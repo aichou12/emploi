@@ -1,29 +1,164 @@
-/* Style pour le bouton Suivant */
-button.next-btn {
-    background-color: #3182ce; /* Couleur bleu */
-    color: white;
-    padding: 12px 24px;
-    border-radius: 4px;
-    border: none;
+/* Styles généraux pour le formulaire */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fc;
+}
+
+h3 {
+    font-size: 1.25rem;
+    color: #4A5568;
+}
+
+label {
+    font-size: 0.875rem;
+    color: #4A5568;
+}
+
+input, select, button {
+    font-size: 1rem;
+    border-radius: 0.375rem;
+}
+
+/* Style pour les sections du formulaire */
+.step-section {
+    display: none;
+}
+
+.step-section:first-child {
+    display: block;
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.space-y-4 {
+    margin-bottom: 1rem;
+}
+
+/* Styles pour les boutons de navigation */
+.tab-btn {
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    background-color: #f7fafc;
+    color: #4A5568;
+    border: 1px solid #e2e8f0;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    border-radius: 0.375rem;
+    text-align: center;
 }
 
-button.next-btn:hover {
-    background-color: #2b6cb0; /* Couleur bleu plus foncée */
-}
-
-/* Style pour le bouton Retour */
-button.prev-btn {
-    background-color: #edf2f7; /* Couleur gris clair */
+.tab-btn:hover {
+    background-color: #edf2f7;
     color: #2d3748;
-    padding: 12px 24px;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-button.prev-btn:hover {
-    background-color: #e2e8f0; /* Gris un peu plus foncé */
+.tab-btn:focus {
+    outline: none;
+    border-color: #4C51BF;
+}
+
+.tab-btn[data-step]:active {
+    background-color: #d1d5db;
+}
+
+.next-btn, .prev-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #4C51BF;
+    color: white;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    border: none;
+}
+
+.next-btn:hover, .prev-btn:hover {
+    background-color: #5a67d8;
+}
+
+.next-btn:focus, .prev-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+}
+
+/* Style pour les inputs et select */
+input[type="text"], input[type="date"], input[type="number"], select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    background-color: white;
+    font-size: 1rem;
+    color: #4A5568;
+}
+
+input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus, select:focus {
+    border-color: #4C51BF;
+    outline: none;
+}
+
+input[type="file"] {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    background-color: white;
+    font-size: 1rem;
+}
+
+/* Styles pour les sections avec les options */
+select {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    background-color: white;
+    width: 100%;
+}
+
+select:focus {
+    border-color: #4C51BF;
+    outline: none;
+}
+
+/* Styles pour les champs obligatoires */
+input[required], select[required] {
+    border-color: #e53e3e;
+}
+
+input[required]:focus, select[required]:focus {
+    border-color: #c53030;
+}
+
+/* Style pour les messages d'erreur */
+.text-red-600 {
+    color: #e53e3e;
+}
+
+/* Résponsive pour les écrans plus petits */
+@media (max-width: 768px) {
+    .flex {
+        flex-direction: column;
+    }
+
+    .space-x-8 {
+        margin-bottom: 1rem;
+    }
+
+    .flex-1 {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .tab-btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .next-btn, .prev-btn {
+        width: 100%;
+        margin-top: 1rem;
+    }
 }

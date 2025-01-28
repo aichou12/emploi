@@ -3,6 +3,7 @@
 
 
 namespace App\Http\Controllers;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 use App\Models\Job;
 use Illuminate\Http\Request;

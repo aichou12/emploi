@@ -28,7 +28,10 @@ class UserController extends Controller
     // Enregistrer les informations de l'utilisateur dans la base de données
     public function store(Request $request)
     {
+       // dd($request);
         // Validation des données
+        UserProfile::create($request->all());
+        dd("ok");
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',

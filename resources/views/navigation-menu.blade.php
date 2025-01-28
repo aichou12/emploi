@@ -9,10 +9,12 @@
         <img src="{{ asset('images/dss.png') }}" alt="Dashboard" class="block h-9 w-auto" />
     </a>
    
-             <h1 class="text-xl font-bold text-gray-900">
-                PLATEFORME DE GESTION DES DEMANDES D'EMPLOI DE LA DIASPORA
-            </h1>
-        </div>
+    <h1 class="text-xl font-bold text-gray-900 ml-4 text-center">
+    PLATEFORME DE GESTION DES DEMANDES D'EMPLOI DE LA DIASPORA
+</h1>
+
+</div>
+
 
 
 
@@ -98,7 +100,7 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('Compte') }}
                             </div>
 
                             <x-dropdown-link href="{{ route('profile.show') }}">
@@ -119,7 +121,7 @@
 
                                 <x-dropdown-link href="{{ route('logout') }}"
                                          @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Deconnexion') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>

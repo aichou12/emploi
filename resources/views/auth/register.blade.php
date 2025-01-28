@@ -1,60 +1,113 @@
-<x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateforme de Gestion des Demandes d'Emploi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
 
-        <x-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <div>
-                <x-label for="name" value="{{ __('Name') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+    <!-- Header -->
+    <header class="bg-white py-4 shadow">
+        <div class="container mx-auto flex items-center justify-center px-6">
+            <div class="flex flex-col items-center text-center space-y-4">
+                <img src="images/dss.png" alt="Logo Sénégal" class="h-12">
+                <h1 class="text-xl font-bold text-gray-900">
+                    PLATEFORME DE GESTION DES DEMANDES D'EMPLOI DE LA DIASPORA
+                </h1>
             </div>
+        </div>
+    </header>
 
-            <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            </div>
+    <!-- Alerte rouge -->
+    <div class="bg-blue-100 text-black-700 p-4 text-center">
+        <p>
+            Cette plateforme est <strong>exclusivement dédiée aux Sénégalais de la diaspora</strong> souhaitant intégrer la fonction publique et contribuer au développement du pays.<br>
+            Elle vous permet de postuler aux offres d’emploi et de mettre votre expertise au service du Sénégal.<br><br>
+            🇸🇳 <strong>Votre engagement, notre fierté. Construisons ensemble l’avenir du Sénégal !</strong> 🤝
+        </p>
+    </div>
 
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
+    <!-- Conteneur principal -->
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-6 items-center mt-8 px-6 lg:px-20">
 
-            <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
+        <!-- Colonne gauche : Formulaire -->
+        <div class="bg-white shadow-lg rounded-lg p-6 space-y-6">
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
 
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-label for="terms">
-                        <div class="flex items-center">
-                            <x-checkbox name="terms" id="terms" required />
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 text-center">Créer un compte</h2>
 
-                            <div class="ms-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
-                        </div>
-                    </x-label>
+                <!-- Nom complet -->
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">{{ __('Nom complet') }}</label>
+                    <input id="name" name="name" type="text" :value="old('name')" required autofocus autocomplete="name" 
+                        class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition ease-in-out" />
                 </div>
-            @endif
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
+                <!-- Email -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">{{ __('Email') }}</label>
+                    <input id="email" name="email" type="email" :value="old('email')" required autocomplete="username" 
+                        class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition ease-in-out" />
+                </div>
 
-                <x-button class="ms-4">
-                    {{ __('Register') }}
-                </x-button>
+                <!-- Mot de passe -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">{{ __('Mot de passe') }}</label>
+                    <input id="password" name="password" type="password" required autocomplete="new-password" 
+                        class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition ease-in-out" />
+                </div>
+
+                <!-- Confirmation du mot de passe -->
+                <div>
+                    <label for="password_confirmation" class="block text-sm font-medium text-gray-700 mb-1">{{ __('Confirmer mot de passe') }}</label>
+                    <input id="password_confirmation" name="password_confirmation" type="password" required autocomplete="new-password" 
+                        class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition ease-in-out" />
+                </div>
+
+                <!-- Conditions générales -->
+                @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                    <div class="flex items-start">
+                        <input id="terms" name="terms" type="checkbox" required 
+                            class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+                        <label for="terms" class="ml-2 text-sm text-gray-600">
+                            {!! __('J\'accepte les :terms_of_service et la :privacy_policy', [
+                                'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="text-indigo-600 hover:underline">'.__('Conditions Générales').'</a>',
+                                'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="text-indigo-600 hover:underline">'.__('Politique de Confidentialité').'</a>',
+                            ]) !!}
+                        </label>
+                    </div>
+                @endif
+
+                <!-- Bouton de soumission -->
+                <div class="text-center">
+                    <button type="submit" class="w-full py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition ease-in-out">
+                        {{ __('Création du compte') }}
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Colonne droite : Image -->
+        <div>
+            <img src="images/log.png" alt="Illustration" class="w-full h-auto rounded-lg shadow-md">
+        </div>
+
+    </div>
+
+    <!-- Pied de page -->
+    <footer class="bg-gray-200 text-center text-sm text-gray-700 py-4 mt-8">
+        <div class="container mx-auto">
+            <div class="mb-2">
+                <a href="#" class="text-blue-600 hover:underline mx-2">Mentions légales</a> |
+                <a href="#" class="text-blue-600 hover:underline mx-2">Confidentialité et Cookies</a> |
+                <a href="#" class="text-blue-600 hover:underline mx-2">Contact</a>
             </div>
-        </form>
-    </x-authentication-card>
-</x-guest-layout>
+            <p>fonctionpublique.gouv.sn | gouv.sn | presidence.sn | servicepublic.gouv.sn | fonctionpublique-actes.gouv.sn | fonctionpublique-actes.gouv.sn</p>
+        </div>
+    </footer>
+
+</body>
+</html>
